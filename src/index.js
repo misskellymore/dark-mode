@@ -6,12 +6,9 @@ import Charts from "./components/Charts";
 import Navbar from "./components/Navbar";
 
 import "./styles.scss";
-import useLocalStorage from "./hooks/useLocalStorage.js";
 
 const App = () => {
   const [coinData, setCoinData] = useState([]);
-  const [local, setLocal] = useLocalStorage ("another test", "something");
-
 
   useEffect(() => {
     axios
@@ -23,7 +20,6 @@ const App = () => {
   }, []);
   return (
     <div className="App">
-      {JSON.stringify(local)}
       <Navbar />
       <Charts coinData={coinData} />
     </div>
